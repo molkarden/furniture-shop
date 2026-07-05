@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if product %}
+<nav class="breadcrumb">
+    <a href="/">Главная</a> › 
+    <a href="/catalog/">Каталог</a> › 
+    {{ product.title }}
+</nav>
+
+<div class="product-detail">
+    <div class="product-detail-grid">
+        <img src="{{ product.image }}" alt="{{ product.title }}" class="product-detail-img">
+        <div class="product-detail-info">
+            <h1>{{ product.title }}</h1>
+            <p class="category">{{ product.category }}</p>
+            <div class="rating">★★★★★</div>
+            <div class="price-big">{{ product.price }}</div>
+            {% if product.old_price %}<p class="old-price">{{ product.old_price }}</p>{% endif %}
+            
+            <div class="specs">
+                <h3>Характеристики</h3>
+                <ul>
+                    <li><strong>Цвет:</strong> <span>{{ product.color }}</span></li>
+                    <li><strong>Материал:</strong> <span>{{ product.material }}</span></li>
+                </ul>
+            </div>
+            
+            <a href="/cart/add/{{ product.id }}/" class="form-submit-btn" style="margin-top: 20px;">🛒 Добавить в корзину</a>
+            <a href="/catalog/" class="btn-outline" style="margin-top: 15px;">← Вернуться в каталог</a>
+        </div>
+    </div>
+    
+    <div class="product-detail-bottom">
+        <h2>Описание</h2>
+        <p class="description-text">{{ product.description }}</p>
+    </div>
+</div>
+{% else %}
+<div style="text-align: center; padding: 100px 20px;">
+    <h2>Товар не найден</h2>
+    <a href="/catalog/" class="btn" style="margin-top: 20px;">В каталог</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <h1>Интернет-магазин мебели</h1>
+    <p>Мебель для вашего комфорта</p>
+    <a href="/catalog/" class="btn">Смотреть каталог</a>
+</section>
+
+<section class="features">
+    <h2>Почему выбирают нас</h2>
+    <div class="grid">
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Быстрая доставка</h3>
+            <p>Доставляем мебель по всей России</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <h3>Гарантия качества</h3>
+            <p>Только проверенные материалы</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💎</div>
+            <h3>Гарантия 5 лет</h3>
+            <p>Расширенная гарантия</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛠️</div>
+            <h3>Профессиональная сборка</h3>
+            <p>Бесплатная сборка при заказе от 30 000 ₽</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

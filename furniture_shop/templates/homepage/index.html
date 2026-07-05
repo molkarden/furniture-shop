@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <h1>Интернет-магазин мебели</h1>
+    <p>{{ subtitle }}</p>
+    <a href="{% url 'catalog' %}" class="btn pulse">Смотреть каталог</a>
+</section>
+
+<section class="categories">
+    <h2>Популярные категории</h2>
+    <div class="grid">
+        <div class="category-card">
+            <img src="https://avatars.mds.yandex.net/i?id=d91352393d00c305ff03e9efae5263e597e6e08b-5581167-images-thumbs&n=13=crop" 
+                 alt="Гостиная" class="category-img">
+            <h3>Гостиная</h3>
+            <a href="{% url 'catalog' %}">Смотреть →</a>
+        </div>
+        <div class="category-card">
+            <img src="https://avatars.mds.yandex.net/i?id=8e7f8945a823773f0dc5dea7d4018aff3da48baa-5649481-images-thumbs&n=13=crop" 
+                 alt="Спальня" class="category-img">
+            <h3>Спальня</h3>
+            <a href="{% url 'catalog' %}">Смотреть →</a>
+        </div>
+        <div class="category-card">
+            <img src="https://avatars.mds.yandex.net/i?id=651ea75c7fafd3d76acd9c528f00e9cd0d723ff8-4055261-images-thumbs&n=13=crop" 
+                 alt="Кухня" class="category-img">
+            <h3>Кухня</h3>
+            <a href="{% url 'catalog' %}">Смотреть →</a>
+        </div>
+        <div class="category-card">
+            <img src="https://avatars.mds.yandex.net/i?id=d2ce8be29e54cc4359cb91aa6cb7b73ae16ae609-5869342-images-thumbs&n=13=crop" 
+                 alt="Офис" class="category-img">
+            <h3>Офис</h3>
+            <a href="{% url 'catalog' %}">Смотреть →</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <h2>Почему выбирают нас</h2>
+    <div class="grid">
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Быстрая доставка</h3>
+            <p>Доставляем мебель по всей России в течение 3-7 дней</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <h3>Гарантия качества</h3>
+            <p>Только проверенные материалы от ведущих производителей</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">💎</div>
+            <h3>Гарантия 5 лет</h3>
+            <p>Расширенная гарантия на всю продукцию нашего магазина</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🛠️</div>
+            <h3>Профессиональная сборка</h3>
+            <p>Бесплатная сборка при заказе от 30 000 рублей</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" style="background: white; padding: 60px 20px; border-radius: 20px; margin: 50px 0;">
+    <h2>О нашем магазине</h2>
+    <p style="text-align: center; max-width: 800px; margin: 20px auto; font-size: 18px; color: #666;">
+        «Уютный дом» — это интернет-магазин качественной мебели. Мы работаем с 2015 года и помогли 
+        обустроить более 50 000 домов по всей России. В нашем каталоге представлена мебель для гостиной, 
+        спальни, кухни, детской и офиса. Мы тщательно отбираем поставщиков и гарантируем высокое 
+        качество каждого изделия.
+    </p>
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{% url 'catalog' %}" class="btn">Перейти в каталог</a>
+    </div>
+</section>
+{% endblock %}

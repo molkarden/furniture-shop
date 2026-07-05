@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Каталог мебели</h1>
+<p style="color: #666; margin-bottom: 30px;">Найдено товаров: {{ products|length }}</p>
+
+<div class="catalog-grid">
+    {% for product in products %}
+    <div class="catalog-card">
+        <img src="{{ product.image }}" alt="{{ product.title }}" class="catalog-card-img">
+        <div class="catalog-card-body">
+            <h3 class="catalog-card-title">{{ product.title }}</h3>
+            <p class="catalog-card-text">{{ product.description|truncatewords:10 }}</p>
+            <p class="catalog-card-price">{{ product.price }}</p>
+            <a href="/catalog/{{ product.id }}/" class="catalog-card-btn">Подробнее</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

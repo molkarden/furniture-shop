@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Контакты</h1>
+
+<div class="contacts-grid">
+    <div class="contact-info">
+        <h3>Наши контакты</h3>
+        <p>📞 +7 (999) 123-45-67</p>
+        <p>📧 info@uyutny-dom.ru</p>
+        <p>📍 г. Тула, ул. Мебельная, д. 1</p>
+        <p>🕐 Пн-Пт: 9:00 - 20:00</p>
+        <p>🕐 Сб: 10:00 - 18:00</p>
+        <p>🕐 Вс: выходной</p>
+    </div>
+    <div class="contact-form">
+        <h3>Напишите нам</h3>
+        <form>
+            <div class="form-group">
+                <label>Ваше имя</label>
+                <input type="text" class="form-input" placeholder="Введите имя">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-input" placeholder="example@mail.ru">
+            </div>
+            <div class="form-group">
+                <label>Сообщение</label>
+                <textarea class="form-input" rows="5" placeholder="Ваше сообщение"></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn">Отправить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

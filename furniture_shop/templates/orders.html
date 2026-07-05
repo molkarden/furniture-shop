@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>📋 Мои заказы</h1>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="{% if message.tags == 'success' %}message message-success{% else %}message message-error{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% if orders %}
+    {% for order in orders %}
+    <div class="order-card">
+        <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 15px;">
+            <div>
+                <h3>Заказ №{{ order.id }}</h3>
+                <p style="color: var(--primary); font-weight: 600; font-size: 18px;">{{ order.product_title }}</p>
+                <p style="color: #6c757d; font-size: 14px;">Количество: {{ order.quantity }} шт.</p>
+            </div>
+            <div style="text-align: right;">
+                <p style="color: #6c757d; font-size: 13px;">{{ order.created_at|date:"d.m.Y H:i" }}</p>
+                <p style="margin-top: 10px;">
+                    {% if order.delivery_method == 'delivery' %}
+                        <span class="badge badge-delivery">🚚 Доставка</span>
+                    {% else %}
+                        <span class="badge badge-pickup">🏪 Самовывоз</span>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <hr style="border: none; border-top: 1px solid #e9ecef; margin: 15px 0;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 14px; color: #495057;">
+            <div><strong>Телефон:</strong> {{ order.customer_phone }}</div>
+            <div><strong>Email:</strong> {{ order.customer_email }}</div>
+            {% if order.delivery_method == 'delivery' %}
+            <div><strong>Адрес:</strong> {{ order.delivery_address }}</div>
+            <div><strong>Дата и время:</strong> {{ order.delivery_date }} / {{ order.delivery_time }}</div>
+            {% else %}
+            <div style="grid-column: 1 / -1;"><strong>Склад:</strong> {{ order.pickup_point }}</div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div style="text-align: center; padding: 80px 20px;">
+        <div style="font-size: 80px;">📋</div>
+        <h2>У вас пока нет заказов</h2>
+        <p style="color: #666; margin: 20px 0;">Оформите первый заказ в каталоге</p>
+        <a href="/catalog/" class="btn">Перейти в каталог</a>
+    </div>
+{% endif %}
+{% endblock %}

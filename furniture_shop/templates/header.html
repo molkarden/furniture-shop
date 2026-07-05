@@ -1,0 +1,18 @@
+
+<header class="header">
+    <nav class="nav">
+        <a href="{% url 'home' %}" class="logo">◆ Уютный дом</a>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'catalog' %}">Каталог</a>
+            <a href="{% url 'contacts' %}">Контакты</a>
+            {% if request.session.user_email %}
+                <a href="{% url 'cart' %}" class="cart-icon">🛒 Корзина</a>
+                <a href="{% url 'logout' %}" style="color: #dc3545;">Выйти</a>
+                <span style="color: var(--primary);">👤 {{ request.session.user_name }}</span>
+            {% else %}
+                <a href="{% url 'login' %}" class="cart-icon">Войти</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

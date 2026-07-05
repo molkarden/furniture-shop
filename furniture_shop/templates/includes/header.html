@@ -1,0 +1,15 @@
+{% load static %}
+<header class="header">
+    <nav class="nav">
+        <a href="{% url 'home' %}" class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="" height="50">
+            Уютный дом
+        </a>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'catalog' %}">Каталог</a>
+            <a href="{% url 'contacts' %}">Контакты</a>
+            <a href="#" class="cart-icon">Корзина (0)</a>
+        </div>
+    </nav>
+</header>
